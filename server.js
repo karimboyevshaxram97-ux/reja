@@ -13,7 +13,7 @@ fs.readFile("database/user.json", "utf8", (err, data) => {
     user = JSON.parse(data);
   }
 });
-
+ 
 // 1
 app.use(express.static("public"));
 app.use(express.json());
@@ -29,8 +29,8 @@ app.get("/HELLO", function(req, res) {
   res.send("<h1>Salom, mening ismim Shakhrambek. Bugun uyga vazifani ishga tushurdim.</h1>");
 });
 
-app.get('/authore', (req, res) => {
-  res.render("authore", { user: user });
+app.get('/author', (req, res) => {
+  res.render("author", { user: user });
 })
 
 app.get("/GIFT", function(req, res) {
@@ -43,3 +43,4 @@ let PORT = 3000;
 server.listen(PORT, function () {
   console.log(`The server is running successfully on port: ${PORT}`);
 });
+
