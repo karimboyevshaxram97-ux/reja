@@ -8,9 +8,9 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
-    "train": "nodemon train.js",
+    "funk": "nodemon funk.js",
     "start": "node server.js",
-    "Atask" "nodemon Atask.js",
+    "train": "nodemon train.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
