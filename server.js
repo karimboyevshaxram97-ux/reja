@@ -33,14 +33,14 @@ app.get('/author', (req, res) => {
   res.render("author", { user: user });
 })
 
-app.get("/GIFT", function(req, res) {
-  res.send("<h1> XUSH KELIBSIZ SAHIFAMGA</h1>");
+app.get("/", function(req, res) {
+  res.render("reja");
 });
 
 // 5: serverni ishga tushurish
 const server = http.createServer(app);
 let PORT = 3000;
 server.listen(PORT, function () {
-  console.log(`The server is running successfully on port: ${PORT}`);
+  console.log(`The server is running successfully on port: ${PORT}, http://localhost:${PORT}`);
 });
 

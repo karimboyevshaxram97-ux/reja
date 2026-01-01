@@ -1,3 +1,4 @@
+/*
 console.log("Jack Ma maslahatlari");
 
 const list = [
@@ -70,7 +71,6 @@ maslahatBering(65, (err, data) => {
 console.log("passed here 1");
 */
 //-------------------------------async --------------------------------------------------------
-
 /*
 async function maslahatBering(a) {
   if (typeof a !== "number") throw new Error("insert a number");
@@ -115,3 +115,6 @@ async function run() {
 }
 run();
 */
+
+
+//-----------------------------------------------------------------------------
