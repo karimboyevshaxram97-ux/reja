@@ -19,8 +19,18 @@ app.set("views", "views");
 app.set("view engine", "ejs");
 
 // 4 ROUTING CODE 
-app.get("/HELLO", function(req, res) {
-  res.send("<h1>Salom, mening ismim Shakhrambek. Bugun uyga vazifani ishga tushurdim.</h1>");
+app.post("/create-item", (req, res) => {
+  console.log("user entered / create-item");
+console.log(req.body);
+const new_reja = req.body.reja;
+db.collection("plans").insertOne({ reja: new_reja }, (err, data) =>{
+  if (err) {
+    console.log(err);
+    res.end("something went wrong");
+  } else {
+    res.end("successfully added");
+  }
+})
 });
 
 app.get('/author', (req, res) => {
@@ -28,8 +38,19 @@ app.get('/author', (req, res) => {
 })
 
 app.get("/", function(req, res) {
-  res.render("reja");
-});
+  console.log("user entered /");
+  db.collection("plans")
+  .find()
+  .toArray((err, data) =>{
+    if (err) {
+      console.log(err);
+      res.end("something went wrong");
+    } else {
+      console.log(data);
+       res.render("reja" , { items: data });
+      }
+    })
+  });
 
 module.exports = app;
 
