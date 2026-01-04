@@ -1,7 +1,9 @@
 console.log("web serverni boshlash");
 const express = require("express");
 const app = express();
+/*
 const fs = require("fs");
+*/
 
 //MongoDB connect
 const db = require("./server").db();
@@ -21,14 +23,29 @@ app.set("view engine", "ejs");
 // 4 ROUTING CODE 
 app.post("/create-item", (req, res) => {
   console.log("user entered / create-item");
-console.log(req.body);
-const new_reja = req.body.reja;
+  console.log(req.body);
+
+  const new_reja = req.body.reja;
+
+  db.collection("plans").insertOne({ reja: new_reja }, (err, result) => {
+    res.json({
+      _id: result.insertedId,
+      reja: new_reja
+    });
+  });
+}); // ✅ mana shu qavs yetishmayotgan edi
+
+
+
+
+
+/*
 db.collection("plans").insertOne({ reja: new_reja }, (err, data) =>{
   console.log(data.ops);
   res.json(data.ops[0]);
 });
 }); 
-
+*/
 app.post("/delete-item", (req, res) => {
 const id = req.body.id;
 db.collection("plans").deleteOne(
@@ -39,9 +56,11 @@ function (err, data) {
 );
 });
 
+/*
 app.get('/author', (req, res) => {
   res.render("author", { user: user });
 })
+*/
 
 app.get("/", function(req, res) {
   console.log("user entered /");
