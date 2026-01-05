@@ -1,3 +1,56 @@
+
+
+class Shop {
+  constructor(non, lagmon, cola) {
+    this.non = non;
+    this.lagmon = lagmon;
+    this.cola = cola;
+  }
+
+ getTime() {
+    const now = new Date();
+    let hours = now.getHours().toString().padStart(2, "0");
+    let minutes = now.getMinutes().toString().padStart(2, "0");
+    return `${hours}:${minutes}`;
+  }
+
+ qoldiq() {
+    console.log(
+      `Hozir ${this.getTime()}da ${this.non}ta non, ${this.lagmon}ta lagmon va ${this.cola}ta cola mavjud!`
+    );
+  }
+
+   sotish(mahsulot, soni) {
+    if (this[mahsulot] >= soni) {
+      this[mahsulot] -= soni;
+      console.log(
+        `Hozir ${this.getTime()}da ${soni}ta ${mahsulot} sotildi!`
+      );
+    } else {
+      console.log(
+        `Hozir ${this.getTime()}da ${mahsulot} yetarli emas!`
+      );
+    }
+  }
+
+  qabul(mahsulot, soni) {
+    this[mahsulot] += soni;
+    console.log(
+      `Hozir ${this.getTime()}da ${soni}ta ${mahsulot} qabul qilindi!`
+    );
+  }
+}
+
+const shop = new Shop(4, 5, 2);
+
+shop.qoldiq();              
+shop.sotish("non", 3);      
+shop.qabul("cola", 4);     
+shop.qoldiq();             
+
+
+
+/*
 function checkContent(shakhram1, shakhram2) {
   if (shakhram1.length !== shakhram2.length) return false;
 
@@ -14,7 +67,7 @@ function checkContent(shakhram1, shakhram2) {
 
   return true;
 }
-
+*/
 
 
 //------------------------------------------------------------------------------------

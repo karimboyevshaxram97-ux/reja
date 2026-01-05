@@ -33,19 +33,11 @@ app.post("/create-item", (req, res) => {
       reja: new_reja
     });
   });
-}); // ✅ mana shu qavs yetishmayotgan edi
-
-
-
-
-
-/*
-db.collection("plans").insertOne({ reja: new_reja }, (err, data) =>{
-  console.log(data.ops);
-  res.json(data.ops[0]);
-});
 }); 
-*/
+
+
+
+
 app.post("/delete-item", (req, res) => {
 const id = req.body.id;
 db.collection("plans").deleteOne(
@@ -55,6 +47,35 @@ function (err, data) {
 }
 );
 });
+
+
+
+app.post("/edit-item", (req, res) => {
+  const data = req.body;
+  console.log(data);
+
+  db.collection("plans").findOneAndUpdate(
+    { _id: new mongodb.ObjectId(data.id) },
+    { $set: { reja: data.new_input } },
+    function (err, data) {
+      res.json({ state: "success" });
+    }
+  );
+
+  res.end("done");
+});
+
+
+app.post("/delete-all", (req, res) => {
+  if (req.body.delete_all) {
+    db.collection("plans").deleteMany(function () {
+      res.json({ state: "hamma rejalar ochirildi" });
+    });
+  }
+});
+
+
+
 
 /*
 app.get('/author', (req, res) => {
