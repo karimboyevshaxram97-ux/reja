@@ -18,7 +18,7 @@ mongodb.connect(
       module.exports = client;
       const app = require("./app"); // bu sizning Express app faylingiz bo'lishi kerak
       const server = http.createServer(app);
-      const PORT = 3000;
+      const PORT = 3011;
       server.listen(PORT, () => {
         console.log(`The server is running successfully on port: ${PORT}, http://localhost:${PORT}`);
       });

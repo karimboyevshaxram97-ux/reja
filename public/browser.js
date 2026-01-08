@@ -57,15 +57,12 @@ if (e.target.classList.contains("delete-me")) {
       });
   }
 }
-
-  
 // edit oper
 if (e.target.classList.contains("edit-me")) {
   let userInput = prompt(
     "O'zgartirish kiriting",
     e.target.parentElement.parentElement.querySelector(".item-text").innerHTML
   );
-
   if (userInput) {
     axios
       .post("/edit-item", {
@@ -84,7 +81,6 @@ if (e.target.classList.contains("edit-me")) {
   }
 }
 });
-
 document
   .getElementById("clean-all")
   .addEventListener("click", function () {

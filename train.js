@@ -1,5 +1,13 @@
+ 
+ 
+ function getReverse(str) {
+    return str.split("").reverse().join("");
+}
 
+console.log(getReverse("hello"));   
+console.log(getReverse("world"));   
 
+/*
 class Shop {
   constructor(non, lagmon, cola) {
     this.non = non;
@@ -48,7 +56,7 @@ shop.sotish("non", 3);
 shop.qabul("cola", 4);     
 shop.qoldiq();             
 
-
+*/
 
 /*
 function checkContent(shakhram1, shakhram2) {
