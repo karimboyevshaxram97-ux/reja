@@ -1,12 +1,35 @@
+ //==========================================================================
+/*
+F-TASK
+
+Shunday findDoublers function tuzing, unga faqat bitta string argument pass bolib,
+ agar stringda bir hil harf qatnashgan bolsa true, qatnashmasa 
+false qaytarishi kerak. MASALAN: getReverse("hello") return true return qiladi.
+
+ */
+   function findDoublers(str) {
+  let seen = {};
+
+  for (let char of str) {
+    if (seen[char]) {
+      return true;
+    }
+    seen[char] = true;
+  }
+
+  return false;
+}
+
  
- 
+ /*
  function getReverse(str) {
     return str.split("").reverse().join("");
 }
 
 console.log(getReverse("hello"));   
 console.log(getReverse("world"));   
-
+*/
+//============================================================================
 /*
 class Shop {
   constructor(non, lagmon, cola) {
@@ -57,7 +80,7 @@ shop.qabul("cola", 4);
 shop.qoldiq();             
 
 */
-
+//=============================================================================================
 /*
 function checkContent(shakhram1, shakhram2) {
   if (shakhram1.length !== shakhram2.length) return false;
